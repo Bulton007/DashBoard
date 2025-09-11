@@ -65,7 +65,7 @@ const SlideBar = ({ collapsed, onToggle, currentPage, onPageChange, DarkMode }) 
           <div key={item.id}>
             <button 
               className={`w-full flex items-center justify-between p-3 rounded-xl transition-all duration-200
-                ${currentPage === item.id || item.active ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25" : DarkMode ? "text-slate-300 hover:bg-slate-800/50" : "text-slate-600 hover:bg-slate-100"}`}
+                ${currentPage === item.id || item.active ? "bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg shadow-blue-500/25" : DarkMode ? "text-slate-300 hover:bg-slate-800/50" : "text-slate-600 hover:bg-slate-100"}`}
               onClick={()=>{
                 if(item.submenu){
                   toggleExpand(item.id);
@@ -113,12 +113,12 @@ const SlideBar = ({ collapsed, onToggle, currentPage, onPageChange, DarkMode }) 
 
       {/* User Profile */}
       {!collapsed && (
-            <div className="p-4 border-t border-slate-200/50 dark:border-slate-700/50">
-        <div className="flex items-center space-x-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <div className={`p-4 border-t ${DarkMode ? "border-slate-700/50" : "border-slate-200/50"}`}>
+        <div className={`flex items-center space-x-3 p-3 rounded-xl ${DarkMode ? "bg-slate-800/50" : "bg-slate-50"} `}>
           <img src={MyPro} alt="Profile" className="w-10 h-10 rounded-full ring-2 ring-blue-500" />
           <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-slate-800 dark:text-white truncate">Deluch Ratanak Bulton</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 truncate">Administrator</p>
+              <p className={`text-sm font-medium ${DarkMode ? "text-white" : "text-slate-800"} truncate`}>Deluch Ratanak Bulton</p>
+              <p className={`text-xs ${DarkMode ? "text-slate-400" : "text-slate-500"} truncate`}>Administrator</p>
             </div>
         </div>
       </div>
